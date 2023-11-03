@@ -15,6 +15,7 @@ private:
     unsigned short health = 100;
     Inventory inventory;
     Vector2D position {0, 0};
+    short roomID=0; // player room. 0=spawn
 
 
 

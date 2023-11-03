@@ -1,6 +1,6 @@
 //
 // Created by Mateusz Pawełko on 03/11/2023.
-//
+// Uses CLYDE CLI Graphic Engine
 
 #ifndef CLI_GAME_RENDERER_H
 #define CLI_GAME_RENDERER_H
@@ -8,7 +8,7 @@
 #include <vector>
 #include <iostream>
 #include <thread>
-
+// clear command. thanks windows.
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__)
 #define CLEAR "cls"
    #define OS "WIN"

@@ -3,18 +3,16 @@
 #include "classes/InputHandler.h"
 
 #include <thread>
-#include <iostream>
-
+#include <chrono>
 
 int main() {
-    std::cout << "Press enter to start.";
-    std::getchar();
 
-    while (1) { // game main loop
-
+    clyde::Renderer renderer(64, 32, clyde::FPS_30);
+    clyde::object_list objects = {};
+    std::chrono::milliseconds timespan(renderer.fps);
+    while(1) {
 
     }
-
 
     return 0;
 }
