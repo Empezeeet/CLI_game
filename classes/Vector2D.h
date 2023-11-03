@@ -7,10 +7,11 @@
 
 
 class Vector2D {
-private:
+
+
+public:
     int x;
     int y;
-public:
     Vector2D(int x, int y) {
         this->x = x;
         this->y = y;

@@ -54,8 +54,8 @@ namespace worldGen {
          * @param h OPTIONAL height of room else random
          */
         void generateRoom(unsigned short enterid,short side,unsigned short w=0,unsigned short h=0 ) {
-            if (w == 0) w = rand() % 15+1;
-            if (h==0) h = rand() % 15+1;
+            if (w == 0) w = rand() % 54+4;
+            if (h==0) h = rand() % 54+4;
             unsigned int id = rand()%10000+10000; // 5 digit number
             short randSide;
             unsigned short randEID;

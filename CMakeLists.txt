@@ -11,4 +11,5 @@ add_executable(CLI_game main.cpp
         classes/Vector2D.h
         classes/renderer.h
         classes/WorldGenerator.h
-        headers/kbhit_alternative.h)
+        headers/kbhit_alternative.h
+        classes/InputHandler.h)
