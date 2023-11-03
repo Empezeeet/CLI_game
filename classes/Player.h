@@ -9,23 +9,30 @@
 #include "../classes/inventory.h"
 #include "../classes/Vector2D.h"
 
-class player {
+class Player {
 private:
 
     unsigned short health = 100;
     Inventory inventory;
     Vector2D position {0, 0};
-    short roomID=0; // player room. 0=spawn
+    short roomID=0; // Player room. 0=spawn
+    char sprite = 'P';
 
 
 
 public:
-    player(unsigned short hp) {
+    Player(unsigned short hp) {
         this->health = hp;
         this->inventory =  Inventory();
     }
     void move(Vector2D direction) {
         this->position = this->position + direction;
+    }
+    void setSprite(char s) {
+        this->sprite = s;
+    }
+    char getSprite() {
+        return this->sprite;
     }
 
 

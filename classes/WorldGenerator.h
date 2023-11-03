@@ -11,8 +11,8 @@ namespace worldGen {
     struct entrance {
         short side; // needed when generating new room.
         // there are always 4 entrances, at every side, centered.
-        bool locked; // do player need key to cross it?
-        unsigned short id; // used to connect to enterance so player can walk between rooms.
+        bool locked; // do Player need key to cross it?
+        unsigned short id; // used to connect to enterance so Player can walk between rooms.
     };
 
     struct room {
@@ -35,13 +35,16 @@ namespace worldGen {
         WorldGenerator() {
             std::srand(time(nullptr));
             // 1. generate start room.
-            // 2. when player tries to cross entrance generate new but save previous.
+            // 2. when Player tries to cross entrance generate new but save previous.
             //  this way every room is always connected (no softlock)
-            generateRoom(rand()%10000+10000, 1);
+            generateRoom(rand()%10000+10000, 1, 15, 15);
         }
-        void generateRoom(unsigned short enterid,short side) {
-            unsigned short w = rand() % 15+1;
-            unsigned short h = rand() % 15+1;
+        std::vector<room> getMap() {
+            return this->map;
+        }
+        void generateRoom(unsigned short enterid,short side,unsigned short w=0,unsigned short h=0 ) {
+            if (w == 0) w = rand() % 15+1;
+            if (h==0) h = rand() % 15+1;
             unsigned int id = rand()%10000+10000; // 5 digit number
             short randSide;
             unsigned short randEID;

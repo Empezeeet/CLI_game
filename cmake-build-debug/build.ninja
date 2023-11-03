@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_CLI_game: phony || CMakeFiles/CLI_game.d
 
 build CMakeFiles/CLI_game.dir/main.cpp.o: CXX_COMPILER__CLI_game_unscanned_Debug /Users/empezeeet/Documents/progr/CLI_game/main.cpp || cmake_object_order_depends_target_CLI_game
   DEP_FILE = CMakeFiles/CLI_game.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  FLAGS = -o a.out -lncurses -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/CLI_game.dir
   OBJECT_FILE_DIR = CMakeFiles/CLI_game.dir
 
@@ -64,7 +64,7 @@ build CMakeFiles/CLI_game.dir/main.cpp.o: CXX_COMPILER__CLI_game_unscanned_Debug
 # Link the executable CLI_game
 
 build CLI_game: CXX_EXECUTABLE_LINKER__CLI_game_Debug CMakeFiles/CLI_game.dir/main.cpp.o
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
+  FLAGS = -o a.out -lncurses -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk
   OBJECT_DIR = CMakeFiles/CLI_game.dir
   POST_BUILD = :
   PRE_LINK = :

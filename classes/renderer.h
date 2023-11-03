@@ -95,7 +95,7 @@ namespace clyde {
         }
 
 
-        object_list generate_shape(int x, int y, int w, int h, char c) {
+        object_list generate_shape(int x, int y, int w, int h, char c, char letter) {
             // Generate a shape
             // x = x position
             // y = y position
@@ -110,7 +110,7 @@ namespace clyde {
             object_list shape;
             switch (c) {
                 case 'r':
-                    return this->generate_rectangle(x, y, w, h);
+                    return this->generate_rectangle(x, y, w, h, letter);
                 default:
                     return { {{0, 0, 'n'}} };
             }
@@ -168,7 +168,7 @@ namespace clyde {
 
     private:
 
-        object_list generate_rectangle(int x, int y, int w, int h) {
+        object_list generate_rectangle(int x, int y, int w, int h, char letter) {
             // x: x of top left corner
             // y: y of top left corner
             // w: width
@@ -179,7 +179,7 @@ namespace clyde {
                 for (int j=0; j<w; j++) {
                     if (x+j > width-1) continue;
                     if (y+i > height-1) continue;
-                    rectangle.push_back({Object(x+j, y+i, 'B')});
+                    rectangle.push_back({Object(x+j, y+i, letter)});
                 }
             }
 
