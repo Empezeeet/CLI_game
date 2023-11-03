@@ -10,7 +10,5 @@ add_executable(CLI_game main.cpp
         classes/inventory.h
         classes/Vector2D.h
         classes/renderer.h
-        classes/InputHandler.h
         classes/WorldGenerator.h
-        headers/worldgen_functions.h
         headers/kbhit_alternative.h)

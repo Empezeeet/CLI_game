@@ -39,9 +39,20 @@ namespace worldGen {
             //  this way every room is always connected (no softlock)
             generateRoom(rand()%10000+10000, 1, 15, 15);
         }
+        /**
+         * Returns map
+         * @return vector<room>
+         */
         std::vector<room> getMap() {
             return this->map;
         }
+        /**
+         * Generates room at appends it into map vector.
+         * @param enterid id of used entrance
+         * @param side side of used entrance
+         * @param w OPTIONAL width of room else random
+         * @param h OPTIONAL height of room else random
+         */
         void generateRoom(unsigned short enterid,short side,unsigned short w=0,unsigned short h=0 ) {
             if (w == 0) w = rand() % 15+1;
             if (h==0) h = rand() % 15+1;
