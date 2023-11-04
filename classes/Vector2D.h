@@ -26,6 +26,7 @@ public:
     Vector2D operator*(int mul) {
         return {this->x *mul, this->y *mul};
     }
+
 };
 
 

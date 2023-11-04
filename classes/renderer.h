@@ -93,20 +93,33 @@ namespace clyde {
             this->prepare_frame(this->_objects);
             this->render_frame();
         }
-
+		/**
+		 * Generates text
+		 * @param x start point x
+		 * @param y start point y
+		 * @param text text
+		 * @return object_list type
+		 */
+	    object_list generate_text(int x, int y, std::string text) {
+		    object_list out_text = {};
+		    for (char c : text) {
+			    out_text.push_back({x,y,c});
+				x++;
+		    }
+			return out_text;
+	    }
+        /**
+         * Generates shape.
+         * @param x horizontal start point
+         * @param y vertical start point
+         * @param w width of shape
+         * @param h height of shape
+         * @param c type of shape (only 'r' - rectangle works)
+         * @param letter ASCII symbol (brick of object)
+         * @return object_list type. {{ { 0, 0, 'n' } }} if something went wrong.
+         */
 
         object_list generate_shape(int x, int y, int w, int h, char c, char letter) {
-            // Generate a shape
-            // x = x position
-            // y = y position
-            // w = width
-            // h = height
-            // c = type of shape:
-            //    - 'r' = rectangle
-            //    - 't' = triangle // doesn't work yet
-            //    - 'c' = circle // doesn't work yet
-            // Returns object_list with shape
-            // Returns { {'n'} } when shape is not recognized
             object_list shape;
             switch (c) {
                 case 'r':
@@ -114,8 +127,6 @@ namespace clyde {
                 default:
                     return { {{0, 0, 'n'}} };
             }
-
-            return  {{{0, 0, 'n'}}};
         }
 
         void clear_frame() {

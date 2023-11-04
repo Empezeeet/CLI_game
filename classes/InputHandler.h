@@ -11,9 +11,9 @@
 
 class InputHandler {
 private:
-    Player::Player* player;
+    PlayerN::Player* player;
 public:
-    explicit InputHandler(Player::Player* player) : player(player) {
+    explicit InputHandler(PlayerN::Player* player) : player(player) {
 
     }
     bool handleInput() {
