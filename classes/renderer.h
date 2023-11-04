@@ -1,5 +1,5 @@
 //
-// Created by Mateusz Pawełko on 03/11/2023.
+// Created by Empezeeet on 03/11/2023.
 // Uses CLYDE CLI Graphic Engine
 
 #ifndef CLI_GAME_RENDERER_H

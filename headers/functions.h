@@ -1,5 +1,5 @@
 //
-// Created by Mateusz Pawełko on 04/11/2023.
+// Created by Empezeeet on 04/11/2023.
 //
 
 #ifndef CLI_GAME_FUNCTIONS_H

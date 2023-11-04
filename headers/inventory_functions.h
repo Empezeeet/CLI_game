@@ -1,5 +1,5 @@
 //
-// Created by Mateusz Pawełko on 03/11/2023.
+// Created by Empezeeet on 03/11/2023.
 //
 
 #ifndef CLI_GAME_INVENTORY_FUNCTIONS_H
