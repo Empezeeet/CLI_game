@@ -130,13 +130,13 @@ namespace clyde {
         }
 
         void clear_frame() {
-            if (!this->frame.empty()) {
-                for (int y=0; y<=get_height()-1; y++) {
-                    for (int x=0; x<=get_width()-1; x++) {
-                        this->frame[y][x] = ' ';
-                    }
+            if (this->frame.empty()) return; // frame is empty.
+            for (int y=0; y<=get_height()-1; y++) {
+                for (int x=0; x<=get_width()-1; x++) {
+                    this->frame[y][x] = ' ';
                 }
             }
+        
 
         }
         std::vector< std::vector<char> > prepare_frame(object_list objects) {
@@ -146,19 +146,19 @@ namespace clyde {
 
             // Clear frame
             this->clear_frame();
-            if (!objects.empty()) {
-                for (int i=0; i<=objects.size(); i++) {
+            if (objects.empty()) return; // objects are empty so nothing to render.
+            for (int i=0; i<=objects.size(); i++) {
 
-                    // use frame_ptr to set object at its position in frame variable
-                    if (objects[i].x > this->get_width()-1) continue;
-                    if (objects[i].y > this->get_height()-1) continue;
+                // use frame_ptr to set object at its position in frame variable
+                if (objects[i].x > this->get_width()-1) continue;
+                if (objects[i].y > this->get_height()-1) continue;
 
-                    //frame[objects[i].x][objects[i].y] = objects[i].letter;
-                    // do the same like above but using frame pointer
-                    this->frame_ptr->at(objects[i].y).at(objects[i].x) = objects[i].letter;
+                //frame[objects[i].x][objects[i].y] = objects[i].letter;
+                // do the same like above but using frame pointer
+                this->frame_ptr->at(objects[i].y).at(objects[i].x) = objects[i].letter;
 
-                }
             }
+            
 
             return this->frame;
         }
