@@ -62,13 +62,15 @@ namespace clyde {
         std::vector< std::vector<char> > *frame_ptr = &frame;
 
 
-
+        /**
+         * @brief Construct a new Renderer object
+         * 
+         * @param w max width of frame
+         * @param h max height of frame
+         * @param f FPS count.
+         */
         Renderer(int w, int h, FPS f) {
-            // Initialize renderer
-            // w = width
-            // h = height
-            // f = fps
-
+           
             width = w;
             height = h;
             fps = f;
@@ -85,9 +87,25 @@ namespace clyde {
             this->clear_frame();
 
         }
+        /**
+         * @brief Get the max width of renderer object
+         * 
+         * @return int 
+         */
         int get_width() { return this->width; }
+
+        /**
+         * @brief Get the max height of renderer object
+         * 
+         * @return int 
+         */
         int get_height() { return this->height; }
-        // If you want to have output in CLI, use this.
+
+        /**
+         * @brief Renders frame 
+         * 
+         * @param objs object_list
+         */
         void render(object_list objs) {
             this->prepare_objects(objs);
             this->prepare_frame(this->_objects);
@@ -120,6 +138,7 @@ namespace clyde {
          */
 
         object_list generate_shape(int x, int y, int w, int h, char c, char letter) {
+            // TODO: should check is in bounds of renderer
             object_list shape;
             switch (c) {
                 case 'r':
@@ -128,9 +147,14 @@ namespace clyde {
                     return { {{0, 0, 'n'}} };
             }
         }
-
+        /**
+         * @brief Clears frame
+         * 
+         */
         void clear_frame() {
             if (this->frame.empty()) return; // frame is empty.
+            /// verify this but should be faster:
+            // myVector.assign(myVector.size(), ' ');
             for (int y=0; y<=get_height()-1; y++) {
                 for (int x=0; x<=get_width()-1; x++) {
                     this->frame[y][x] = ' ';
@@ -147,6 +171,7 @@ namespace clyde {
             // Clear frame
             this->clear_frame();
             if (objects.empty()) return; // objects are empty so nothing to render.
+
             for (int i=0; i<=objects.size(); i++) {
 
                 // use frame_ptr to set object at its position in frame variable
@@ -178,8 +203,8 @@ namespace clyde {
         }
 
     private:
-
         object_list generate_rectangle(int x, int y, int w, int h, char letter) {
+            // TODO: should check is in bounds of renderer
             // x: x of top left corner
             // y: y of top left corner
             // w: width
