@@ -1,5 +1,0 @@
-/Users/empezeeet/Documents/progr/CLI_game/cmake-build-debug/CMakeFiles/CLI_game.dir
-/Users/empezeeet/Documents/progr/CLI_game/cmake-build-debug/CMakeFiles/toRange_test.dir
-/Users/empezeeet/Documents/progr/CLI_game/cmake-build-debug/CMakeFiles/test.dir
-/Users/empezeeet/Documents/progr/CLI_game/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/empezeeet/Documents/progr/CLI_game/cmake-build-debug/CMakeFiles/rebuild_cache.dir

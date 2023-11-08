@@ -9,6 +9,8 @@
 #include <ctime>
 #include <vector>
 
+#include "../classes/Vector2D.h"
+
 namespace worldGen {
     struct Entrance {
         short side; // needed when generating new Room.

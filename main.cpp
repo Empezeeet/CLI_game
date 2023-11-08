@@ -6,7 +6,7 @@
 
 #include "classes/renderer_extension.h"
 #include <chrono>
-#include <math.h>
+#include <cmath>
 
 
 
