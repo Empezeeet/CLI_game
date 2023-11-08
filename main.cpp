@@ -14,7 +14,7 @@
 int main() {
   
     // Renderer
-    clyde::Renderer renderer(100, 60, clyde::FPS_30);
+    clyde::Renderer renderer(60, 35, clyde::FPS_30);
     clyde::object_list objects = {};
     std::chrono::milliseconds timespan(renderer.fps);
 

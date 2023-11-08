@@ -173,7 +173,7 @@ namespace clyde {
 
             // Clear frame
             this->clear_frame();
-            if (objects.empty()) return; // objects are empty so nothing to render.
+            if (objects.empty()) return {{'n'}}; // objects are empty so nothing to render.
 
             for (int i=0; i<=objects.size(); i++) {
 

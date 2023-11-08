@@ -7,6 +7,7 @@
 
 #include "../classes/renderer.h"
 #include "../classes/WorldGenerator.h"
+#include <math.h>
 namespace clyde {
     clyde::object_list generate_entrances(worldGen::Room room) {
         clyde::object_list entrances = {};

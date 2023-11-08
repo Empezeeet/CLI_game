@@ -7,6 +7,8 @@
 
 #include <array>
 #include <ctime>
+#include <vector>
+
 namespace worldGen {
     struct Entrance {
         short side; // needed when generating new Room.
