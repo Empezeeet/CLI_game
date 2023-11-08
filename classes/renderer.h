@@ -47,19 +47,22 @@ namespace clyde {
     };
 
     typedef std::vector<Object> object_list;
-
+    typedef std::vector< std::vector<char> > Frame;
+    
     class Renderer {
     private:
         object_list _objects;
+       
 
     public:
-        std::vector< std::vector<char> > frame;
+        Frame frame;
         int width;
+        
         int height;
         int fps;
         bool running=false;
         // pointer to frame variable
-        std::vector< std::vector<char> > *frame_ptr = &frame;
+        Frame *frame_ptr = &frame;
 
 
         /**

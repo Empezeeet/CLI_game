@@ -6,11 +6,13 @@
 
 #include "classes/renderer_extension.h"
 #include <chrono>
+#include <math.h>
 
 
 
 
 int main() {
+  
     // Renderer
     clyde::Renderer renderer(100, 60, clyde::FPS_30);
     clyde::object_list objects = {};
