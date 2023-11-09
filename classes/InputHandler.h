@@ -42,8 +42,9 @@ public:
 
             }
 
-            fseek(stdin,0,SEEK_END);
+            
         }
+        fseek(stdin,0,SEEK_END);
         return false;
     }
 };

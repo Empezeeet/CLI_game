@@ -44,41 +44,53 @@ namespace PlayerN {
         void changeEntrances(std::array<worldGen::Entrance, 4> newEntrances) {
             this->entrances = newEntrances;
         }
+        void handleEntrance() {
+
+        }
+
+
+
+
         void move(Vector2D direction) {
 			bool roomExists = false;
             Vector2D newPos = this->position + direction;
+            // TODO: fix because not efficient.
             // if newPos is out of bounds then don't make move
             //  BUT if newPos is in Entrance (technically out of bounds) then make it possible.
             for(worldGen::Entrance entr : this->entrances) {
-				if (entr.x == newPos.x && entr.y == newPos.y) {
-					unsigned int newRoomID;
+				if (entr.x != newPos.x || entr.y != newPos.y) continue;
 
-					// player wants to use Entrance.
-					// TODO: 0. Check if room exists then do not generate new but enter existing one.
-					// 1. Generate new Room
-					// 2. Teleport player there AND CHANGE ITS POSITION
-					// 3. Update bounds.
-					short side = wgen_ptr->getSideFromPos({entr.x, entr.y}, this->roomID);
-					// 0.
-					for(worldGen::Room room : wgen_ptr->getMap()) {
-						for(worldGen::Entrance entrance : room.entrances) {
-							if (entr.id == entrance.id && room.id != this->roomID) {
-								// room exists, do not generate but teleport to existing room
-								roomExists = true;
-								newRoomID = room.id;
-							}
-						}
-					}
-					this->roomID = newRoomID;
-					if (!roomExists) newRoomID = wgen_ptr->generateRoom(wgen_ptr->getEntranceBySide(side, this->roomID).id, side);
+                unsigned int newRoomID;
 
-					worldGen::Room newRoom = wgen_ptr->getRoomByID(newRoomID);
-					this->position = {int(newRoom.width/2), int(newRoom.height/2)};
+                // player wants to use Entrance.
+                // TODO: 0. Check if room exists then do not generate new but enter existing one.
+                // 1. Generate new Room
+                // 2. Teleport player there AND CHANGE ITS POSITION
+                // 3. Update bounds.
+                short side = wgen_ptr->getSideFromPos({entr.x, entr.y}, this->roomID);
+
+                // 0. Check if room exists. NOT EFFICIENT ENOUGH
+                /**for(worldGen::Room room : wgen_ptr->getMap()) {
+                    for(worldGen::Entrance entrance : room.entrances) {
+                        if (entr.id == entrance.id && room.id != this->roomID) {
+                            // room exists, do not generate but teleport to existing room
+                            roomExists = true;
+                            newRoomID = room.id;
+                        }
+                    }
+                }
+                
+                
+                if (!roomExists)*/ newRoomID = wgen_ptr->generateRoom(wgen_ptr->getEntranceBySide(side, this->roomID).id, side);
+                this->roomID = newRoomID;
+                worldGen::Room newRoom = wgen_ptr->getRoomByID(newRoomID);
+                this->position = {int(newRoom.width/2), int(newRoom.height/2)};
 
 
 
-				}
+				
 			}
+            // check is new position in bounds. 
             if (newPos.x <= bounds.max_x-1 && newPos.y <= bounds.max_y-1 &&
                 newPos.x >= bounds.min_x && newPos.y >= bounds.min_y-1) {
                 this->prev_pos = position;

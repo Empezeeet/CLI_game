@@ -1,6 +1,3 @@
-// From https://cboard.cprogramming.com/c-programming/178177-very-simple-program-impossible-create-mac.html
-// May need to clear input buffer between khbit() calls. Use fseek(stdin,0,SEEK_END);
-
 #ifndef GETCH_H_INCLUDED
 #define GETCH_H_INCLUDED
 

@@ -55,8 +55,9 @@ int main() {
     while(true) {
 		// check is player in new room
 		if (roomID != player.getRoomID()) {
+            roomID = player.getRoomID();
 			// Player entered new room.
-			worldGen::Room newRoom = worldGenerator.getRoomByID(player.getRoomID());
+			worldGen::Room newRoom = worldGenerator.getRoomByID(roomID);
 			obj2 = renderer.generate_shape(2,2,newRoom.width-2,newRoom.height-2, 'r', ' ');
 			objects = renderer.generate_shape(1,1,newRoom.width,newRoom.height, 'r', 'X');
 			objects.insert(objects.end(), obj2.begin(), obj2.end());
