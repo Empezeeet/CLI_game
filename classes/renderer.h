@@ -181,7 +181,6 @@ namespace clyde {
                 if (objects[i].x > this->get_width()-1) continue;
                 if (objects[i].y > this->get_height()-1) continue;
 
-                //frame[objects[i].x][objects[i].y] = objects[i].letter;
                 // do the same like above but using frame pointer
                 this->frame_ptr->at(objects[i].y).at(objects[i].x) = objects[i].letter;
 
@@ -192,6 +191,10 @@ namespace clyde {
         }
 
         void prepare_objects(object_list objects) {
+            // if object is not in bounds of renderer then don't try to render it;
+            for (size_t i=0; i<objects.size(); i++) {
+                if (objects[i].x > this->width || objects[i].y > this->height) objects.erase(objects.begin() + i);
+            }
             this->_objects = objects;
         }
 

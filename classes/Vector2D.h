@@ -26,6 +26,14 @@ public:
     Vector2D operator*(int mul) {
         return {this->x *mul, this->y *mul};
     }
+    bool operator==(Vector2D& other) {
+        if (this->x == other.x && this->y == other.y) return true;
+        return false;
+    }
+    bool operator!=(Vector2D& other) {
+        if (this->x == other.x && this->y == other.y) return false;
+        return true;
+    }
 
 };
 

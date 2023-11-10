@@ -2,7 +2,7 @@
 #include "classes/renderer.h"
 #include "classes/WorldGenerator.h"
 #include "classes/InputHandler.h"
-
+#include "classes/Logger.h"
 
 #include "classes/renderer_extension.h"
 #include <chrono>
@@ -11,12 +11,17 @@
 
 
 
+
 int main() {
-  
+    
+    Logger::Logger logger("/log/lg.log");
+    
+
     // Renderer
     clyde::Renderer renderer(60, 35, clyde::FPS_30);
     clyde::object_list objects = {};
-    std::chrono::milliseconds timespan(renderer.fps);
+    // FPS lock
+    const std::chrono::milliseconds timespan(renderer.fps);
 
     //World Generation
     worldGen::WorldGenerator worldGenerator(renderer.width, renderer.height);

@@ -10,6 +10,7 @@
 #include "../classes/Vector2D.h"
 #include "../classes/WorldGenerator.h"
 #include "../headers/functions.h"
+#define MAX_ETR 4
 namespace PlayerN {
 
     struct Bounds {
@@ -45,7 +46,7 @@ namespace PlayerN {
             this->entrances = newEntrances;
         }
         void handleEntrance() {
-
+            
         }
 
 
@@ -54,11 +55,15 @@ namespace PlayerN {
         void move(Vector2D direction) {
 			bool roomExists = false;
             Vector2D newPos = this->position + direction;
+            short safeCount=0;
             // TODO: fix because not efficient.
             // if newPos is out of bounds then don't make move
             //  BUT if newPos is in Entrance (technically out of bounds) then make it possible.
             for(worldGen::Entrance entr : this->entrances) {
-				if (entr.x != newPos.x || entr.y != newPos.y) continue;
+                if (safeCount >= MAX_ETR) break;
+
+                // if newPos is not in entrance then skip.
+				if ((Vector2D){entr.x, entr.y} != newPos) continue;
 
                 unsigned int newRoomID;
 
@@ -85,6 +90,7 @@ namespace PlayerN {
                 this->roomID = newRoomID;
                 worldGen::Room newRoom = wgen_ptr->getRoomByID(newRoomID);
                 this->position = {int(newRoom.width/2), int(newRoom.height/2)};
+                return;
 
 
 

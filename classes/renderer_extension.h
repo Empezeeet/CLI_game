@@ -11,7 +11,7 @@
 namespace clyde {
     clyde::object_list generate_entrances(worldGen::Room room) {
         clyde::object_list entrances = {};
-        //TODO: this is shit. fix this (counter system)
+        //TODO: this is not efficient. fix this (counter system)
         int counter=1;
         int counter2=1;
         for (int i=1; i<=4; i++) {
@@ -29,15 +29,11 @@ namespace clyde {
                 // horizontal (upper and bottom sides)
                 unsigned short center = ceil((double)room.width/2);
                 entrances.push_back({center, counter==1 ? 1 : room.height, 'O'});
-                entrances.push_back({center-1, counter==1 ? 1 : room.height, 'O'});
-                entrances.push_back({center+1, counter==1 ? 1 : room.height, 'O'});
                 counter++;
             } else {
                 // vertical (left and right sides)
                 unsigned short center = ceil((double)room.height/2);
                 entrances.push_back({counter2==1 ? 1 : room.width,center, 'O'});
-                entrances.push_back({counter2==1 ? 1 : room.width,center+1, 'O'});
-                entrances.push_back({counter2==1 ? 1 : room.width,center-1, 'O'});
                 counter2++;
             }
 

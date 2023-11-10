@@ -103,10 +103,10 @@ namespace worldGen {
          * @param h OPTIONAL height of Room else random
          * @param roomID OPTIONAL ID of Room else random.
          */
-        unsigned int generateRoom(unsigned short enterid,short side,unsigned short w=0,unsigned short h=0,int roomID=-1) {
+        unsigned int generateRoom(unsigned short enterid,short side, unsigned short w=0,unsigned short h=0,int roomID=-1) {
             // If width, height or roomID not specified generate random.
-			if (w == 0) w = rand() % 54+20;
-            if (h == 0) h = rand() % 50+3; // Due to 1h >1W height must be smaller than width
+			if (w == 0) w = rand() % this->max_width-2 + 6;//(rand() % this->max_width-2)+10;
+            if (h == 0) h = rand() % this->max_height-2 + 6; // Due to 1H >1W height must be smaller than width
             if (roomID==-1) roomID = rand()%10000+10000; // 5 digit number
             short randSide;
 			// Entrance ID
